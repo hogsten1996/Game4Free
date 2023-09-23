@@ -35,7 +35,7 @@ function Navbar() {
           <div className="md:hidden absolute top-[60px] right-4 bg-gray-800 text-white px-4 py-2 rounded shadow-lg" >
             <ul>
               <li className="my-2">
-                <Link to="/" className="hover:text-yellow-500 hover:scale-110" onClick={() => setIsOpen(false)}>Home</Link>
+                <Link to="/" className="hover:text-yellow-500" onClick={() => setIsOpen(false)}>Home</Link>
               </li>
               <li className="my-2">
                 <Link to="/games" className="hover:text-yellow-500" onClick={() => setIsOpen(false)}>Games</Link>

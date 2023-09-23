@@ -31,7 +31,7 @@ function GetGames() {
 
   return (
     <div>
-      <div className="py-1 flex justify-center flex-wrap bg-[#69698c] fixed top-[60px] left-0 w-full z-0 border-b">
+      <div className="py-1 flex justify-center flex-wrap bg-gray-800 fixed top-[60px] left-0 w-full z-0 border-b">
         {categories.map((category) => (
           <button
             key={category}
@@ -47,7 +47,7 @@ function GetGames() {
 
         {/* Dropdown for small and medium screens */}
         <div className="lg:hidden flex">
-          <h1 className="text-center px-2 text-2xl">Category</h1>
+          <h1 className="text-white text-center px-2 text-2xl">Category</h1>
           <select
             onChange={(e) => {
               setCategory(e.target.value);
