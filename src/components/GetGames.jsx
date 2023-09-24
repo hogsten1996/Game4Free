@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useGetGamesQuery } from "../reducers/api";
 
 function GetGames() {
   const [category, setCategory] = useState("mmo");
+  const [search, setSearch] = useState("");
+  const [filteredData, setFilteredData] = useState(null);
   const { data, error, isLoading } = useGetGamesQuery(category);
 
   const categories = [
@@ -26,6 +28,14 @@ function GetGames() {
     "action-rpg",
   ];
 
+  useEffect(() => {
+    if (data && search) {
+      setFilteredData(data.filter(game => game.title.toLowerCase().includes(search.toLowerCase())));
+    } else {
+      setFilteredData(data);
+    }
+  }, [data, search]);
+
   const buttonClass =
     "px-2 py-2 mx-2 my-1 text-sm bg-[#0f0f1e] text-white rounded shadow hover:bg-[#707084] hover:text-yellow-500";
 
@@ -45,6 +55,17 @@ function GetGames() {
           </button>
         ))}
 
+        {/* Search Bar */}
+        <div className="w-full p-4">
+          <input
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search..."
+            className="w-full px-4 py-2 rounded-lg border-2"
+          />
+        </div>
+
         {/* Dropdown for small and medium screens */}
         <div className="lg:hidden flex">
           <h1 className="text-white text-center px-2 text-2xl">Category</h1>
@@ -53,7 +74,7 @@ function GetGames() {
               setCategory(e.target.value);
               window.scrollTo(0, 0);
             }}
-            className=" bg-gray-400 rounded-lg w-[80px] h-[30px] border"
+            className="bg-gray-400 rounded-lg w-[80px] h-[30px] border"
           >
             {categories.map((category) => (
               <option key={category} value={category}>
@@ -63,12 +84,13 @@ function GetGames() {
           </select>
         </div>
       </div>
+
       <div className="pt-[11rem]">
         {isLoading && <p>Loading...</p>}
         {error && <p>Error: {error.message}</p>}
-        {data && (
+        {filteredData && (
           <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 mx-4">
-            {data.map((game) => (
+            {filteredData.map((game) => (
               <li
                 key={game.id}
                 className="bg-gray-300 p-4 rounded flex flex-col shadow-md"
@@ -114,3 +136,4 @@ function GetGames() {
 }
 
 export default GetGames;
+
