@@ -5,7 +5,7 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false); // state to manage dropdown visibility
 
   return (
-    <div className="fixed w-full h-[60px] flex justify-center items-center bg-[#0f0f1e] text-white px-4">
+    <div className="fixed w-full h-[60px] flex justify-center items-center bg-[#0f0f1e] text-white px-4 z-200">
       <div className="max-w-screen-xl w-full flex justify-between items-center">
         <h1 className="text-3xl text-yellow-500">Game 4 Free</h1>
         
@@ -32,7 +32,7 @@ function Navbar() {
 
         {/* Dropdown menu for small screens */}
         {isOpen && (
-          <div className="md:hidden absolute top-[60px] right-4 bg-gray-800 text-white px-4 py-2 rounded shadow-lg" >
+          <div className="md:hidden absolute top-[60px] right-4 bg-gray-700 text-white px-4 py-2 rounded shadow-lg z-200" >
             <ul>
               <li className="my-2">
                 <Link to="/" className="hover:text-yellow-500" onClick={() => setIsOpen(false)}>Home</Link>

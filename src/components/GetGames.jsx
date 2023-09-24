@@ -85,7 +85,7 @@ function GetGames() {
         </div>
       </div>
 
-      <div className="pt-[11rem]">
+      <div className="pt-[16rem]">
         {isLoading && <p>Loading...</p>}
         {error && <p>Error: {error.message}</p>}
         {filteredData && (
