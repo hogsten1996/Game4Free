@@ -30,7 +30,11 @@ function GetGames() {
 
   useEffect(() => {
     if (data && search) {
-      setFilteredData(data.filter(game => game.title.toLowerCase().includes(search.toLowerCase())));
+      setFilteredData(
+        data.filter((game) =>
+          game.title.toLowerCase().includes(search.toLowerCase())
+        )
+      );
     } else {
       setFilteredData(data);
     }
@@ -136,4 +140,3 @@ function GetGames() {
 }
 
 export default GetGames;
-

@@ -20,13 +20,7 @@ function Navbar() {
         {/* Navbar items for medium and larger screens */}
         <ul className="hidden md:flex space-x-4">
           <li>
-            <Link to="/" className="hover:text-yellow-500 hover:scale-110">Home</Link>
-          </li>
-          <li>
-            <Link to="/games" className="hover:text-yellow-500">Games</Link>
-          </li>
-          <li>
-            <Link to="/royale" className="hover:text-yellow-500">Placeholder</Link>
+            <Link to="/" className="hover:text-yellow-500">Games</Link>
           </li>
         </ul>
 

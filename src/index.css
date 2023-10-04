@@ -6,11 +6,7 @@
 @layer base {
   body {
     @apply font-raleway;
-    /* @apply bg-[#2f2f39]; */
-    background-image: url('https://s3.amazonaws.com/prod-media.gameinformer.com/styles/full/s3/2019/11/06/2b963ed0/scosglen_goatmen.jpg');
-    background-size: cover;
-    /* background-repeat: no-repeat; */
-    background-position: center center;
+    @apply bg-[#2f2f39];
   }
   li {
     @apply px-4;
